@@ -24,23 +24,23 @@
 **Clone the project**
 
 ```bash
-    git clone https://github.com/isabella-projects/monsters-react
+git clone https://github.com/isabella-projects/monsters-react
 ```
 
 **Go to the project directory**
 
 ```bash
-    cd monsters-react
+cd monsters-react
 ```
 
 **Install dependencies**
 
 ```bash
-    npm install
+npm install
 ```
 
 **Start the server**
 
 ```bash
-    npm run start
+npm run start
 ```
