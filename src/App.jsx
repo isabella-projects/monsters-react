@@ -1,6 +1,11 @@
 import { Component } from "react";
 
+import CardList from "./components/card-list/card-list.component";
 import "./App.css";
+
+/**
+ * @version 1.0.0
+ */
 
 class App extends Component {
     constructor() {
@@ -10,25 +15,18 @@ class App extends Component {
             monsters: [],
             searchField: "",
         };
-        console.log("constructor");
     }
 
     async componentDidMount() {
-        console.log("componentDidMount");
         try {
             const res = await fetch(
                 "https://jsonplaceholder.typicode.com/users"
             );
             const users = await res.json();
 
-            this.setState(
-                () => {
-                    return { monsters: users };
-                },
-                () => {
-                    console.log(this.state);
-                }
-            );
+            this.setState(() => {
+                return { monsters: users };
+            });
         } catch (error) {
             console.error("Error while fetching data:", error);
         }
@@ -58,13 +56,7 @@ class App extends Component {
                     placeholder="Search monsters"
                     onChange={onSearchChange}
                 />
-                {filteredResult.map((monster) => {
-                    return (
-                        <div key={monster.id}>
-                            <h1>{monster.name}</h1>
-                        </div>
-                    );
-                })}
+                <CardList monsters={filteredResult} />
             </div>
         );
     }
