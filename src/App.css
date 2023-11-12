@@ -3,3 +3,23 @@
     margin: 0 auto;
     text-align: center;
 }
+
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search-box {
+    padding: 1rem;
+    font-size: 1.625rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    &:focus {
+        border: 2px solid gray;
+    }
+}
