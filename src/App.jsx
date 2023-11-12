@@ -7,7 +7,7 @@ import "./App.css";
 /**
  * - Monster Cards Application in ReactJS
  * @author isabella-projects
- * @version 1.1.0
+ * @version 1.1.5
  */
 
 class App extends Component {
@@ -25,10 +25,11 @@ class App extends Component {
             const res = await fetch(
                 "https://jsonplaceholder.typicode.com/users"
             );
-            const users = await res.json();
+            const preUsers = await res.json();
+            const postUsers = preUsers.slice(0, 6);
 
             this.setState(() => {
-                return { monsters: users };
+                return { monsters: postUsers };
             });
         } catch (error) {
             console.error("Error while fetching data:", error);
