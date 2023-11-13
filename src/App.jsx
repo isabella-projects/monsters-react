@@ -25,11 +25,10 @@ class App extends Component {
             const res = await fetch(
                 "https://jsonplaceholder.typicode.com/users"
             );
-            const preUsers = await res.json();
-            const postUsers = preUsers.slice(0, 6);
+            const users = await res.json();
 
             this.setState(() => {
-                return { monsters: postUsers };
+                return { monsters: users };
             });
         } catch (error) {
             console.error("Error while fetching data:", error);
@@ -54,6 +53,9 @@ class App extends Component {
 
         return (
             <div className="App">
+                <div className="stars"></div>
+                <div className="twinkling"></div>
+                <div className="clouds"></div>
                 <h1 className="app-title">Monster Rolodex</h1>
 
                 <SearchBox

@@ -2,15 +2,39 @@
     appearance: none;
     -webkit-appearance: none;
     border: none;
-    margin: 0.625rem;
+    margin-bottom: 1.125rem;
     outline: none;
     border-radius: 10px;
     font-size: 1.2rem;
     padding: 0.8rem;
-    width: 15rem;
+    width: 34rem;
     line-height: 1rem;
+}
 
-    &:focus {
-        border: 2px solid rgb(14, 14, 14);
+.search-box:focus {
+    border: 2px solid black;
+}
+
+@media (max-width: 916px) {
+    .search-box {
+        margin-top: 0.625rem;
+    }
+}
+
+@media (max-width: 568px) {
+    .search-box {
+        width: 25rem;
+    }
+}
+
+@media (max-width: 478px) {
+    .search-box {
+        width: 21.425rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .search-box {
+        width: 20.825rem;
     }
 }

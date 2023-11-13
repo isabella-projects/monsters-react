@@ -1,8 +1,8 @@
 .card-container {
     display: flex;
     flex-direction: column;
-    background-color: #95dada;
-    border: 2px solid grey;
+    background-color: rgba(248, 248, 248, 0.2);
+    border: 2px solid rgb(180, 179, 179);
     border-radius: 5px;
     padding: 1.5rem;
     cursor: pointer;
@@ -12,10 +12,26 @@
     transition: transform 250ms ease-out;
 }
 
+.card-container h2,
+.card-container p {
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+}
+
 .card-container h2 {
+    font-size: 1.325rem;
+}
+
+.card-container p {
     font-size: 1.125rem;
 }
 
 .card-container:hover {
     transform: scale(1.05);
+}
+
+@media (min-width: 916px) {
+    .card-container:nth-child(n + 7):nth-child(-n + 9) {
+        margin-top: 2rem;
+    }
 }

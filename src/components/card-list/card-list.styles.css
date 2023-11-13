@@ -1,7 +1,18 @@
 .card-list {
-    width: 45vw;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+}
+
+@media (max-width: 916px) {
+    .card-list {
+        grid-template-columns: 1fr 1fr;
+        margin-top: 0.625rem;
+    }
+}
+
+@media (max-width: 620px) {
+    .card-list {
+        grid-template-columns: 1fr;
+    }
 }
