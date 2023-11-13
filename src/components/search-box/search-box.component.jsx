@@ -18,6 +18,7 @@ class SearchBox extends Component {
             <input
                 className={`search-box ${this.props.className}`}
                 type="search"
+                name={this.props.name}
                 placeholder={this.props.placeholder}
                 onChange={this.props.onChangeHandler}
             />
@@ -27,6 +28,7 @@ class SearchBox extends Component {
 
 SearchBox.propTypes = {
     onChangeHandler: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     className: PropTypes.string,
 };
