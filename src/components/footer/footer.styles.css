@@ -1,0 +1,14 @@
+.wrapper {
+    display: block;
+    margin-top: 0.625rem;
+}
+
+.wrapper .copyright {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+.wrapper .copyright .author {
+    color: rgb(247, 200, 73);
+}
