@@ -1,5 +1,6 @@
 import { Component } from "react";
 
+import Background from "./components/background/background.component";
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
 import Footer from "./components/footer/footer.component";
@@ -55,11 +56,8 @@ class App extends Component {
 
         return (
             <div className="App">
-                <div className="stars"></div>
-                <div className="twinkling"></div>
-                <div className="clouds"></div>
                 <h1 className="app-title">Monster Rolodex</h1>
-
+                <Background />
                 <SearchBox
                     className="search-box"
                     name="search"
