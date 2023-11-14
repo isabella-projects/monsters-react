@@ -1,5 +1,4 @@
 import { Component } from "react";
-import PropTypes from "prop-types";
 
 import "./card.styles.css";
 
@@ -18,13 +17,5 @@ class Card extends Component {
         );
     }
 }
-
-Card.propTypes = {
-    monster: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        email: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-    }),
-};
 
 export default Card;

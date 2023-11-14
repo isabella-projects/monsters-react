@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useState, useEffect } from "react";
 
 import Background from "./components/background/background.component";
 import CardList from "./components/card-list/card-list.component";
@@ -13,62 +13,54 @@ import "./App.css";
  * @version 1.1.5
  */
 
-class App extends Component {
-    constructor() {
-        super();
+const App = () => {
+    const [searchField, setSearchField] = useState("");
+    const [monsters, setMonsters] = useState([]);
+    const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
-        this.state = {
-            monsters: [],
-            searchField: "",
-        };
-    }
-
-    async componentDidMount() {
-        try {
-            const res = await fetch(
-                "https://jsonplaceholder.typicode.com/users"
-            );
-            const users = await res.json();
-
-            this.setState(() => {
-                return { monsters: users };
-            });
-        } catch (error) {
-            console.error("Error while fetching data:", error);
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const res = await fetch(
+                    "https://jsonplaceholder.typicode.com/users"
+                );
+                const users = await res.json();
+                setMonsters(users);
+            } catch (error) {
+                console.error("Error while fetching data:", error);
+            }
         }
-    }
 
-    onSearchChange = (event) => {
-        const searchField = event.target.value.toLocaleLowerCase();
+        fetchData();
+    }, []);
 
-        this.setState(() => {
-            return { searchField };
-        });
-    };
-
-    render() {
-        const { monsters, searchField } = this.state;
-        const { onSearchChange } = this;
-
-        const filteredResult = monsters.filter((monster) => {
+    useEffect(() => {
+        const newFilteredMonsters = monsters.filter((monster) => {
             return monster.name.toLocaleLowerCase().includes(searchField);
         });
 
-        return (
-            <div className="App">
-                <h1 className="app-title">Monster Rolodex</h1>
-                <Background />
-                <SearchBox
-                    className="search-box"
-                    name="search"
-                    placeholder="Search monsters"
-                    onChangeHandler={onSearchChange}
-                />
-                <CardList monsters={filteredResult} />
-                <Footer />
-            </div>
-        );
-    }
-}
+        setFilteredMonsters(newFilteredMonsters);
+    }, [monsters, searchField]);
+
+    const onSearchChange = (event) => {
+        const searchFieldString = event.target.value.toLocaleLowerCase();
+        setSearchField(searchFieldString);
+    };
+
+    return (
+        <div className="App">
+            <h1 className="app-title">Monster Rolodex</h1>
+            <Background />
+            <SearchBox
+                className="search-box"
+                name="search"
+                placeholder="Search monsters"
+                onChangeHandler={onSearchChange}
+            />
+            <CardList monsters={filteredMonsters} />
+            <Footer />
+        </div>
+    );
+};
 
 export default App;

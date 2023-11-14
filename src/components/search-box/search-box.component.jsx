@@ -1,5 +1,4 @@
 import { Component } from "react";
-import PropTypes from "prop-types";
 
 import "./search-box.styles.css";
 
@@ -25,12 +24,5 @@ class SearchBox extends Component {
         );
     }
 }
-
-SearchBox.propTypes = {
-    onChangeHandler: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-    className: PropTypes.string,
-};
 
 export default SearchBox;
