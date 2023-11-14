@@ -14,13 +14,13 @@ import "./search-box.styles.css";
  */
 class SearchBox extends Component {
     render() {
+        const { className, onChangeHandler, ...otherProps } = this.props;
         return (
             <input
-                className={`search-box ${this.props.className}`}
+                className={`search-box ${className}`}
                 type="search"
-                name={this.props.name}
-                placeholder={this.props.placeholder}
-                onChange={this.props.onChangeHandler}
+                onChange={onChangeHandler}
+                {...otherProps}
             />
         );
     }
