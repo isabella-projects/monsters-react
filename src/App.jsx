@@ -6,6 +6,7 @@ import SearchBox from "./components/search-box/search-box.component";
 import Footer from "./components/footer/footer.component";
 
 import "./App.css";
+import axios from "axios";
 
 /**
  * - Monster Cards Application in ReactJS
@@ -21,10 +22,11 @@ const App = () => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch(
+                const res = await axios.get(
                     "https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001"
                 );
-                const users = await res.json();
+                const users = await res.data;
+
                 setMonsters(users);
             } catch (error) {
                 console.error("Error while fetching data:", error);
