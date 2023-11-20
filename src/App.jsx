@@ -19,7 +19,7 @@ const App = () => {
     const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
     useEffect(() => {
-        async function fetchData() {
+        (async () => {
             try {
                 const res = await fetch(
                     "https://jsonplaceholder.typicode.com/users"
@@ -29,9 +29,7 @@ const App = () => {
             } catch (error) {
                 console.error("Error while fetching data:", error);
             }
-        }
-
-        fetchData();
+        })();
     }, []);
 
     useEffect(() => {
@@ -52,7 +50,7 @@ const App = () => {
             <h1 className="app-title">Monster Rolodex</h1>
             <Background />
             <SearchBox
-                className="search-box"
+                className="monsters-search-box"
                 name="search"
                 placeholder="Search monsters"
                 onChangeHandler={onSearchChange}
