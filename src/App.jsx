@@ -22,7 +22,7 @@ const App = () => {
         (async () => {
             try {
                 const res = await fetch(
-                    "https://jsonplaceholder.typicode.com/users"
+                    "https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001"
                 );
                 const users = await res.json();
                 setMonsters(users);
@@ -34,14 +34,15 @@ const App = () => {
 
     useEffect(() => {
         const newFilteredMonsters = monsters.filter((monster) => {
-            return monster.name.toLocaleLowerCase().includes(searchField);
+            const fullName = `${monster.firstName} ${monster.lastName}`;
+            return fullName.toLocaleLowerCase().includes(searchField);
         });
 
         setFilteredMonsters(newFilteredMonsters);
     }, [monsters, searchField]);
 
-    const onSearchChange = (event) => {
-        const searchFieldString = event.target.value.toLocaleLowerCase();
+    const onSearchChange = (e) => {
+        const searchFieldString = e.target.value.toLocaleLowerCase();
         setSearchField(searchFieldString);
     };
 

@@ -1,17 +1,18 @@
-import { Component } from "react";
-
 import "./card.styles.css";
 
 const Card = ({ monster }) => {
-    const { name, email, id } = monster;
+    const { id, firstName, lastName, email, age } = monster;
+    const fullName = `${firstName} ${lastName}`;
+
     return (
         <div key={id} className="card-container">
             <img
                 src={`https://robohash.org/${id}?set=set2&size=180x180`}
-                alt={`monster ${name}`}
+                alt={`monster ${fullName}`}
             />
-            <h2>{name}</h2>
+            <h2>{fullName}</h2>
             <p>{email}</p>
+            <p>Age: {age * 5}</p>
         </div>
     );
 };

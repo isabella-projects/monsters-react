@@ -4,14 +4,14 @@
     gap: 1.5rem;
 }
 
-@media (max-width: 916px) {
+@media (max-width: 1115px) {
     .card-list {
         grid-template-columns: 1fr 1fr;
         margin-top: 0.625rem;
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 770px) {
     .card-list {
         grid-template-columns: 1fr;
     }
