@@ -51,13 +51,22 @@ const App = () => {
         <div className="App">
             <h1 className="app-title">Monster Rolodex</h1>
             <Background />
-            <SearchBox
-                className="monsters-search-box"
-                name="search"
-                placeholder="Search monsters"
-                onChangeHandler={onSearchChange}
-            />
-            {isLoading ? <p>Loading...</p> : <CardList monsters={filteredMonsters} />}
+
+            {isLoading ? (
+                <div className="overlay">
+                    <div className="loader"></div>
+                </div>
+            ) : (
+                <>
+                    <SearchBox
+                        className="monsters-search-box"
+                        name="search"
+                        placeholder="Search monsters"
+                        onChangeHandler={onSearchChange}
+                    />
+                    <CardList monsters={filteredMonsters} />
+                </>
+            )}
             <Footer />
         </div>
     );
