@@ -18,14 +18,15 @@ const App = () => {
     const [searchField, setSearchField] = useState('');
     const [monsters, setMonsters] = useState([]);
     const [filteredMonsters, setFilteredMonsters] = useState(monsters);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         (async () => {
             try {
                 const res = await axios.get('https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001');
                 const users = res.data;
-
                 setMonsters(users);
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error while fetching data:', error);
             }
@@ -56,7 +57,7 @@ const App = () => {
                 placeholder="Search monsters"
                 onChangeHandler={onSearchChange}
             />
-            <CardList monsters={filteredMonsters} />
+            {isLoading ? <p>Loading...</p> : <CardList monsters={filteredMonsters} />}
             <Footer />
         </div>
     );
