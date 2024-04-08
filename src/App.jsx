@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
-import Background from "./components/background/background.component";
-import CardList from "./components/card-list/card-list.component";
-import SearchBox from "./components/search-box/search-box.component";
-import Footer from "./components/footer/footer.component";
+import Background from './components/background/background.component';
+import CardList from './components/card-list/card-list.component';
+import SearchBox from './components/search-box/search-box.component';
+import Footer from './components/footer/footer.component';
 
-import "./App.css";
-import axios from "axios";
+import './App.css';
+import axios from 'axios';
 
 /**
  * - Monster Cards Application in ReactJS
@@ -15,21 +15,19 @@ import axios from "axios";
  */
 
 const App = () => {
-    const [searchField, setSearchField] = useState("");
+    const [searchField, setSearchField] = useState('');
     const [monsters, setMonsters] = useState([]);
     const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
     useEffect(() => {
         (async () => {
             try {
-                const res = await axios.get(
-                    "https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001"
-                );
-                const users = await res.data;
+                const res = await axios.get('https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001');
+                const users = res.data;
 
                 setMonsters(users);
             } catch (error) {
-                console.error("Error while fetching data:", error);
+                console.error('Error while fetching data:', error);
             }
         })();
     }, []);
