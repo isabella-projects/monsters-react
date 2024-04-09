@@ -21,7 +21,7 @@ const App = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        (async () => {
+        async function fetchData() {
             try {
                 const res = await axios.get('https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001');
                 const users = res.data;
@@ -30,7 +30,8 @@ const App = () => {
             } catch (error) {
                 console.error('Error while fetching data:', error);
             }
-        })();
+        }
+        fetchData();
     }, []);
 
     useEffect(() => {
