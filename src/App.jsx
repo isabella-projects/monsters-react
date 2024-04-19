@@ -23,8 +23,8 @@ const App = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const res = await axios.get('https://hub.dummyapis.com/employee?noofRecords=9&idStarts=1001');
-                const users = res.data;
+                const res = await axios.get('https://dummyjson.com/users?limit=9');
+                const users = res.data.users;
                 setMonsters(users);
                 setIsLoading(false);
             } catch (error) {
