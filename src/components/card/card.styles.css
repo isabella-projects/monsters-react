@@ -1,6 +1,8 @@
 .card-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(248, 248, 248, 0.2);
     border: 2px solid rgb(180, 179, 179);
     border-radius: 5px;
@@ -20,10 +22,24 @@
 
 .card-container h2 {
     font-size: 1.325rem;
+    margin-bottom: 0.125rem;
 }
 
 .card-container p {
     font-size: 1.125rem;
+    margin: 0.625rem 0;
+    text-align: start;
+}
+
+.card-container p:not(:first-of-type) {
+    margin-top: 0;
+}
+
+.card-container small {
+    color: white;
+    text-shadow: 2px 2px 2px #000;
+    margin-bottom: 0.625rem;
+    font-style: italic;
 }
 
 .card-container:hover {
