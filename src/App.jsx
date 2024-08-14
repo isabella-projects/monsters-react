@@ -8,12 +8,6 @@ import Footer from './components/footer/footer.component';
 import './App.css';
 import axios from 'axios';
 
-/**
- * - Monster Cards Application in ReactJS
- * @author isabella-projects
- * @version 1.1.5
- */
-
 const App = () => {
     const [searchField, setSearchField] = useState('');
     const [monsters, setMonsters] = useState([]);

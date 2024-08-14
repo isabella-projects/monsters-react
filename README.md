@@ -2,9 +2,13 @@
     <img src="https://i.imgur.com/YlGrpaq.png" width="800px" height="auto">
 </div>
 
-# 🌐 React Monsters - Beginner
+# 🌐 React Monsters
 
-**My journey in learning ReactJS will be uploaded in my repository.**
+**Simple project, fetching data from dummy API**
+
+### TODO:
+
+-   Re-write in TypeScripts
 
 # 🛠 Tech Stack
 
