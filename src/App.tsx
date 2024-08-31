@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 
 import Background from './components/background/background.component';
 import CardList from './components/card-list/card-list.component';
@@ -6,25 +6,26 @@ import SearchBox from './components/search-box/search-box.component';
 import Footer from './components/footer/footer.component';
 
 import './App.css';
-import axios from 'axios';
+
+import { getData, type TMonster, type TResponse } from './utils/data.utils';
 
 const App = () => {
     const [searchField, setSearchField] = useState('');
-    const [monsters, setMonsters] = useState([]);
+    const [monsters, setMonsters] = useState<TMonster[]>([]);
     const [filteredMonsters, setFilteredMonsters] = useState(monsters);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             try {
-                const res = await axios.get('https://dummyjson.com/users?limit=9');
-                const users = res.data.users;
+                const response = await getData<TResponse>('https://dummyjson.com/users?limit=9');
+                const users = response.data.users;
                 setMonsters(users);
                 setIsLoading(false);
             } catch (error) {
-                console.error('Error while fetching data:', error);
+                console.error('Error while fetching data: ', error);
             }
-        }
+        };
         fetchData();
     }, []);
 
@@ -37,8 +38,8 @@ const App = () => {
         setFilteredMonsters(newFilteredMonsters);
     }, [monsters, searchField]);
 
-    const onSearchChange = (e) => {
-        const searchFieldString = e.target.value.toLocaleLowerCase();
+    const onSearchChange = (event: ChangeEvent<HTMLInputElement>): void => {
+        const searchFieldString = event.target.value.toLocaleLowerCase();
         setSearchField(searchFieldString);
     };
 

@@ -1,6 +1,11 @@
+import { TMonster } from '../../utils/data.utils';
 import './card.styles.css';
 
-const Card = ({ monster }) => {
+type TCardProps = {
+    monster: TMonster;
+};
+
+const Card = ({ monster }: TCardProps) => {
     const { id, firstName, lastName, maidenName, age, gender, height, weight } = monster;
     const fullName = `${firstName} ${lastName}`;
 
