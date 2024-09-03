@@ -4,11 +4,7 @@
 
 # 🌐 React Monsters
 
-**Simple project, fetching data from dummy API**
-
-### TODO:
-
--   Re-write in TypeScripts
+**Simple ReactJS project, fetching data from dummy API**
 
 # 🛠 Tech Stack
 
@@ -20,7 +16,7 @@
     <img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="NodeJS" alt="NodeJS" width="45" height="45"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/git/git-original.svg" title="Git" alt="Git" width="45" height="45"/>&nbsp;
     <img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" title="npm" alt="npm" width="45" height="45"/>&nbsp;
-    <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode"       width="45" height="45"/>
+    <img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original.svg" title="VSCode" alt="VSCode" width="45" height="45"/>
 </div>
 
 # 🧪 Run Locally
